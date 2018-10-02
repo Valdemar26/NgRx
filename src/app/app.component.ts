@@ -22,17 +22,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.store.pipe(select('carPage')).subscribe(({cars}) => {
-    //   console.log(cars);
-    //   this.cars = cars;
-    // });
-
     this.carState = this.store.pipe(select('carPage'));
-  }
-
-  onAdd(car: Car) {
-    // debugger;
-    this.cars.push(car);
   }
 
   onDelete(car: Car) {

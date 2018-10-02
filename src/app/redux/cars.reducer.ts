@@ -1,8 +1,5 @@
-import {Action} from '@ngrx/store';
-
-import {Car} from '../car.model';
-import {AddCar, CAR_ACTION} from './cars.action';
-import {s} from '@angular/core/src/render3';
+import { Car } from '../car.model';
+import { AddCar, CAR_ACTION } from './cars.action';
 
 const initialState = {
   cars: [
