@@ -25,4 +25,4 @@ export class UpdateCar implements Action {
   constructor(public payload: Car) {}
 }
 
-export class CarsAction = AddCar | DeleteCar | UpdateCar;
+export type CarsAction = AddCar | DeleteCar | UpdateCar;

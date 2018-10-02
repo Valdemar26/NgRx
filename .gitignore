@@ -8,6 +8,11 @@
 # dependencies
 /node_modules
 
+#firebase
+.firebase/
+.firebaserc
+firebase.json
+
 # package-lock.json
 package-lock.json
 
