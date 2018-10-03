@@ -12,7 +12,7 @@ import { Store } from '@ngrx/store';
 
 import { AppState } from './redux/app.state';
 import { Car } from './car.model';
-import { AddCar, LoadCars } from './redux/cars.action';
+import {AddCar, DeleteCar, LoadCars, UpdateCar} from './redux/cars.action';
 
 
 @Injectable()
@@ -43,6 +43,18 @@ export class CarsService {
   }
 
   deleteCar(car: Car) {
-    this.http.delete(CarsService.BASE_URL)
+    this.http.delete(CarsService.BASE_URL + 'cars/' + car.id)
+      .toPromise()
+      .then(_ => {
+        this.store.dispatch(new DeleteCar(car));
+      });
+  }
+
+  updateCar(car: Car) {
+    this.http.put(CarsService.BASE_URL + 'cars/' + car.id, car)
+      .toPromise()
+      .then((car: Car) => {
+        this.store.dispatch(new UpdateCar(car));
+      });
   }
 }

@@ -1,8 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Car } from '../car.model';
-import { AppState } from '../redux/app.state';
-import { Store } from '@ngrx/store';
-import {DeleteCar, UpdateCar} from '../redux/cars.action';
+import { CarsService } from '../cars.service';
 
 @Component({
   selector: 'app-car',
@@ -12,15 +10,19 @@ import {DeleteCar, UpdateCar} from '../redux/cars.action';
 export class CarComponent {
   @Input() car: Car;
 
-  constructor(private store: Store<AppState>) { }
+  constructor(
+    private service: CarsService
+  ) { }
 
   onBuy() {
-    // this.car.isSold = true;
-    this.store.dispatch(new UpdateCar(this.car));
+    this.car.isSold = true;
+    // this.store.dispatch(new UpdateCar(this.car));
+    this.service.updateCar(this.car);
   }
 
   onDelete() {
-    this.store.dispatch(new DeleteCar(this.car));
+    this.service.deleteCar(this.car);
+    // this.store.dispatch(new DeleteCar(this.car));
   }
 
 }
