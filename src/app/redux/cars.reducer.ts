@@ -1,12 +1,7 @@
-import { Car } from '../car.model';
 import { CAR_ACTION, CarsAction } from './cars.action';
-import {st} from '@angular/core/src/render3';
 
 const initialState = {
-  cars: [
-    new Car('Ford', '12.12.2012', 'Focus', false, 1),
-    new Car('Audi', '08.08.2018', 'A8', true, 2)
-  ]
+  cars: []
 };
 
 export function carsReducer(state = initialState, action: CarsAction) {
@@ -27,6 +22,11 @@ export function carsReducer(state = initialState, action: CarsAction) {
       return {
         ...state,
         cars: [...state.cars]
+      };
+    case CAR_ACTION.LOAD_CARS:
+      return {
+        ...state,
+        cars: [...action.payload]
       };
     default:
       return state;

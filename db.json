@@ -20,6 +20,18 @@
       "date": "02.10.2018",
       "model": "Corolla",
       "isSold": false
+    },
+    {
+      "name": "fvdc",
+      "date": "03.10.18",
+      "model": "gf",
+      "id": 4
+    },
+    {
+      "name": "Test Car",
+      "date": "03.10.18",
+      "model": "Test Model",
+      "id": 5
     }
   ]
 }
