@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { Car } from '../car.model';
 import * as moment from 'moment';
-import { Store } from '@ngrx/store';
-import { AppState } from '../redux/app.state';
-import { AddCar } from '../redux/cars.action';
+import { CarsService } from '../cars.service';
 
 @Component({
   selector: 'app-cars-form',
@@ -11,35 +9,35 @@ import { AddCar } from '../redux/cars.action';
   styleUrls: ['./cars-form.component.css']
 })
 export class CarsFormComponent {
-  private id = 2;
-
   carName = '';
   carModel = '';
 
-  constructor(private store: Store<AppState>) { }
+  constructor(
+    private service: CarsService
+  ) { }
 
   onAdd() {
-    if (this.carName === '' || this.carModel === '') return;
+    if (this.carName === '' || this.carModel === '') {
+      return;
+    }
 
-    this.id = ++this.id;
-
+    const date = moment().format('DD.MM.YY');
     const car = new Car(
       this.carName,
-      moment().format('DD.MM.YY'),
-      this.carModel,
-      false,
-      this.id
+      date,
+      this.carModel
     );
 
     // this.addCar.emit(car);
-    this.store.dispatch(new AddCar(car));
+    // this.store.dispatch(new AddCar(car));
+    this.service.addCar(car);
 
     this.carModel = '';
     this.carName = '';
   }
 
   onLoad() {
-    // todo make this
+    this.service.loadCars();
   }
 
 }
