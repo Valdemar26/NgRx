@@ -5,7 +5,7 @@
       "name": "Ford",
       "date": "12.12.2006",
       "model": "Mondeo",
-      "isSold": false
+      "isSold": true
     },
     {
       "id": 2,
@@ -35,35 +35,10 @@
       "isSold": true
     },
     {
-      "name": "tgvresdz",
-      "date": "03.10.18",
-      "model": "cedzxsdxz",
-      "id": 7,
-      "isSold": true
-    },
-    {
-      "name": "sdcxz",
-      "date": "03.10.18",
-      "model": "dwsxz",
-      "id": 8
-    },
-    {
-      "name": "d c",
-      "date": "03.10.18",
-      "model": "ds",
-      "id": 9
-    },
-    {
-      "name": "ytgfrfd",
-      "date": "03.10.18",
-      "model": "fdvf",
-      "id": 10
-    },
-    {
-      "name": "ytgrfc",
-      "date": "03.10.18",
-      "model": "trgfvc",
-      "id": 11
+      "name": "TEST",
+      "date": "04.10.18",
+      "model": "TESTING",
+      "id": 7
     }
   ]
 }

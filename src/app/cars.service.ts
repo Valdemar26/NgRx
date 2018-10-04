@@ -22,8 +22,8 @@ export class CarsService {
 
   }
 
-  preloadCars(): Observable<Car[]> {
-    this.http.get(CarsService.BASE_URL + 'cars');
+  preloadCars(): Observable<any> {
+    return this.http.get(CarsService.BASE_URL + 'cars');
   }
 
   loadCars(): void {

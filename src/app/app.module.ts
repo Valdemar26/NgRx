@@ -11,6 +11,10 @@ import { CarsService } from './cars.service';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { CarsEffect } from './redux/cars.effect';
+import { RouterModule } from '@angular/router';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment.prod';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,12 @@ import { CarsEffect } from './redux/cars.effect';
     FormsModule,
     StoreModule.forRoot({carPage: carsReducer}),
     HttpClientModule,
-    EffectsModule.forRoot([CarsEffect])
+    EffectsModule.forRoot([CarsEffect]),
+    RouterModule.forRoot([
+      {path: '', component: AppComponent}
+    ]),
+    StoreRouterConnectingModule,
+    environment.production ? [] : StoreDevtoolsModule.instrument()
   ],
   providers: [CarsService],
   bootstrap: [AppComponent]
