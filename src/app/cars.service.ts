@@ -1,18 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-// import 'rxjs/add/operator/map';
-// import 'rxjs/add/operator/toPromise';
 import { map } from 'rxjs/operators';
-// import { toPromise } from 'rxjs/operators';
-
-// import 'rxjs/add/operator/toPromise';
-import { toPromise } from 'rxjs/operators';
-
+import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
+import 'rxjs/add/operator/toPromise';
 
 import { AppState } from './redux/app.state';
 import { Car } from './car.model';
-import {AddCar, DeleteCar, LoadCars, UpdateCar} from './redux/cars.action';
+import { AddCar, DeleteCar, LoadCars, UpdateCar } from './redux/cars.action';
+
 
 
 @Injectable()
@@ -26,8 +22,12 @@ export class CarsService {
 
   }
 
+  preloadCars(): Observable<Car[]> {
+    this.http.get(CarsService.BASE_URL + 'cars');
+  }
+
   loadCars(): void {
-    this.http.get(CarsService.BASE_URL + 'cars')
+    this.preloadCars()
       .toPromise()
       .then( (cars: Car[]) => {
         this.store.dispatch(new LoadCars(cars));
