@@ -22,16 +22,48 @@
       "isSold": false
     },
     {
-      "name": "fvdc",
-      "date": "03.10.18",
-      "model": "gf",
-      "id": 4
-    },
-    {
       "name": "Test Car",
       "date": "03.10.18",
       "model": "Test Model",
       "id": 5
+    },
+    {
+      "name": "Запорожець",
+      "date": "03.10.18",
+      "model": "ЗаЗ",
+      "id": 6,
+      "isSold": true
+    },
+    {
+      "name": "tgvresdz",
+      "date": "03.10.18",
+      "model": "cedzxsdxz",
+      "id": 7,
+      "isSold": true
+    },
+    {
+      "name": "sdcxz",
+      "date": "03.10.18",
+      "model": "dwsxz",
+      "id": 8
+    },
+    {
+      "name": "d c",
+      "date": "03.10.18",
+      "model": "ds",
+      "id": 9
+    },
+    {
+      "name": "ytgfrfd",
+      "date": "03.10.18",
+      "model": "fdvf",
+      "id": 10
+    },
+    {
+      "name": "ytgrfc",
+      "date": "03.10.18",
+      "model": "trgfvc",
+      "id": 11
     }
   ]
 }
